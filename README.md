@@ -1,4 +1,4 @@
-# Typing text animation css
+# Typing text  animation css
 Implemented a typing animation in css only . It looks awesome
 
 # Check it on the link
