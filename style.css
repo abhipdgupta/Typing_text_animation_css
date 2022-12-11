@@ -7,8 +7,10 @@
 :root {
   --total_animation_duration: 12s;
   --animation_delay: 1.5s;
+ 
   /* mention number of li one less */
-  --number_of_lis: 3;
+  --number_of_lis: 4;
+ 
   /* for typing animation */
   --typing_speed: 12;
 }
@@ -44,7 +46,7 @@
 }
 @keyframes type {
   100% {
-    top: -12rem;
+    top: calc(-1 * var(--number_of_lis) * 4rem);
   }
 }
 .animate_text ul li span {
@@ -65,7 +67,7 @@
   animation: cursor_blink 0.5s steps(2) infinite,
     typing_animation
       calc(var(--total_animation_duration) / var(--number_of_lis))
-      var(--animation_delay) steps(var(--typing_speed)) 3.5 forwards;
+      var(--animation_delay) steps(var(--typing_speed)) calc(var(--number_of_lis) + 0.5) forwards;
 }
 @keyframes cursor_blink {
   100% {
