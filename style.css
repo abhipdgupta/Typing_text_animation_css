@@ -2,11 +2,17 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family:sans-serif
+  font-family: monospace;
 }
-
+:root {
+  --total_animation_duration: 12s;
+  --animation_delay: 1.5s;
+  /* mention number of li one less */
+  --number_of_lis: 3;
+  /* for typing animation */
+  --typing_speed: 12;
+}
 .container {
-
   height: 100vh;
   display: flex;
   align-items: center;
@@ -21,7 +27,6 @@
   display: flex;
   column-gap: 30px;
   overflow: hidden;
-  
 }
 .static_text {
   line-height: 4rem;
@@ -34,18 +39,17 @@
   line-height: calc(4rem);
   position: relative;
   top: 0;
-  animation: type 12s 1.5s steps(3) forwards;
-} 
+  animation: type var(--total_animation_duration) var(--animation_delay)
+    steps(var(--number_of_lis)) forwards;
+}
 @keyframes type {
   100% {
-    top: calc(-12rem);
+    top: -12rem;
   }
 }
 .animate_text ul li span {
   display: inline-block;
   position: relative;
-  
-  
 }
 .animate_text ul li span::after {
   content: "";
@@ -57,14 +61,16 @@
   width: 100%;
   background: rgb(33, 32, 32);
   border-left: 4px solid wheat;
-  
-  animation: cursor_blink .5s steps(2) 7,typing_animation 4s 1.5s steps(12) 3.5 forwards ;
+
+  animation: cursor_blink 0.5s steps(2) infinite,
+    typing_animation
+      calc(var(--total_animation_duration) / var(--number_of_lis))
+      var(--animation_delay) steps(var(--typing_speed)) 3.5 forwards;
 }
 @keyframes cursor_blink {
-    100%{
-        border-left: 0;
-    }
-    
+  100% {
+    border-left: 0;
+  }
 }
 @keyframes typing_animation {
   40%,
@@ -76,13 +82,13 @@
   }
 }
 @media only screen and (max-width: 600px) {
-    html{
-        font-size: 70%;
-    }
+  html {
+    font-size: 70%;
   }
+}
 
-  @media only screen and (max-width: 300px) {
-    html{
-        font-size: 50%;
-    }
+@media only screen and (max-width: 300px) {
+  html {
+    font-size: 50%;
   }
+}
