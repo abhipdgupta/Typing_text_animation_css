@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family:sans-serif
+}
+
+.container {
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(33, 32, 32);
+}
+.typing_text {
+  position: relative;
+  font-size: 4rem;
+  font-weight: 700;
+  height: calc(4rem);
+  display: flex;
+  column-gap: 30px;
+  overflow: hidden;
+  
+}
+.static_text {
+  line-height: 4rem;
+  color: wheat;
+}
+
+.animate_text ul {
+  color: rgb(223, 56, 56);
+  list-style: none;
+  line-height: calc(4rem);
+  position: relative;
+  top: 0;
+  animation: type 12s 1.5s steps(4) infinite;
+} 
+@keyframes type {
+  100% {
+    top: calc(-16rem);
+  }
+}
+.animate_text ul li span {
+  display: inline-block;
+  position: relative;
+  
+  
+}
+.animate_text ul li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  height: 4rem;
+  width: 100%;
+  background: rgb(33, 32, 32);
+  border-left: 4px solid wheat;
+  
+  animation: cursor_blink .5s steps(2) infinite,typing_animation 3s 1.5s steps(12) infinite ;
+}
+@keyframes cursor_blink {
+    100%{
+        border-left: 0;
+    }
+    
+}
+@keyframes typing_animation {
+  40%,
+  60% {
+    left: calc(100%);
+  }
+  100% {
+    left: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+    html{
+        font-size: 70%;
+    }
+  }
+
+  @media only screen and (max-width: 300px) {
+    html{
+        font-size: 50%;
+    }
+  }
