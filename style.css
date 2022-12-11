@@ -34,11 +34,11 @@
   line-height: calc(4rem);
   position: relative;
   top: 0;
-  animation: type 12s 1.5s steps(4) infinite;
+  animation: type 12s 1.5s steps(3) forwards;
 } 
 @keyframes type {
   100% {
-    top: calc(-16rem);
+    top: calc(-12rem);
   }
 }
 .animate_text ul li span {
@@ -58,7 +58,7 @@
   background: rgb(33, 32, 32);
   border-left: 4px solid wheat;
   
-  animation: cursor_blink .5s steps(2) infinite,typing_animation 3s 1.5s steps(12) infinite ;
+  animation: cursor_blink .5s steps(2) 7,typing_animation 4s 1.5s steps(12) 3.5 forwards ;
 }
 @keyframes cursor_blink {
     100%{
@@ -68,7 +68,7 @@
 }
 @keyframes typing_animation {
   40%,
-  60% {
+  50% {
     left: calc(100%);
   }
   100% {
